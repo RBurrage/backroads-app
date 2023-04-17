@@ -1,6 +1,7 @@
 import logo from '../images/logo.svg';
 import { socialLinks } from '../data';
 import PageLinks from './PageLinks';
+import SocialLink from './SocialLink';
 
 const Navbar = () => {
   return (
@@ -14,14 +15,10 @@ const Navbar = () => {
         </div>
         <PageLinks parentClass='nav-links' itemClass='nav-link' />
         <ul className="nav-icons">
-          {socialLinks.map(({ id, href, icon }) => {
+          {socialLinks.map((link) => {
             return (
-              <li key={id}>
-                <a href={href} target="_blank" className="nav-icon"
-                ><i className={icon}></i
-                ></a>
-              </li>
-              )
+              <SocialLink key={link.id} {...link} className="nav-link" itemClass="nav-icon" />
+            )
           })}
         </ul>
       </div>
